@@ -1,23 +1,21 @@
 package TestCase;
 
+import Config.BaseTest;
+import Config.Credenciales;
 import PageObject.LoginPage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
 
-public class LoginTest {
+
+public class LoginTest  extends BaseTest {
 
     @Test
-    public void Login() throws InterruptedException {
-        System.setProperty("webdriver.edge.driver", "C:\\webdriver\\msedgedriver.exe");
-        WebDriver driver = new EdgeDriver();
+    public void Login() throws Exception {
 
-        driver.get("https://online.bpn.com.ar/");
         LoginPage loginPage = new LoginPage(driver);
         Thread.sleep(300);
-        loginPage.setUserName("floresnes");
-        loginPage.setPassword("Paloma2022-");
+        loginPage.setUserName(Credenciales.userName);
+        loginPage.setPassword(Credenciales.password);
         loginPage.LoginButton();
 
     }
